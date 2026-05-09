@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAIZEN Payment - Dark Edition</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #0f172a; /* Deep Blue Black */
+            background-image: radial-gradient(#4f46e5 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .bounce-hover:hover {
+            transform: translateY(-2px);
+        }
+        .dark-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid #334155;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        neonV: {
+                            400: '#a855f7', // Purple
+                            500: '#8b5cf6', // Violet
+                            600: '#7c3aed',
+                        },
+                        neonB: {
+                            400: '#38bdf8', // Light Blue
+                            500: '#0ea5e9', // Sky Blue
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4 text-slate-200 relative overflow-x-hidden">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-6 left-1/2 transform -translate-x-1/2 bg-neonV-600 text-white px-6 py-3 rounded-full shadow-lg shadow-purple-500/20 transition-all duration-300 opacity-0 -translate-y-4 pointer-events-none z-50 flex items-center gap-2 font-medium text-sm border border-purple-400">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        คัดลอกสำเร็จแล้วครับ
+    </div>
+
+    <!-- Header -->
+    <div class="relative z-10 mb-8 flex items-center justify-center gap-2 mt-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 text-neonV-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 019 14.437V9.564z" />
+        </svg>
+        <h1 class="text-2xl md:text-3xl font-bold tracking-wide text-white">
+            KAIZEN SHOP <span class="text-neonV-400">Payment</span>
+        </h1>
+    </div>
+
+    <!-- Container หลัก -->
+    <div class="max-w-md w-full relative z-10">
+        
+        <!-- ของตกแต่ง -->
+        <svg class="absolute -top-6 -left-2 w-5 h-5 text-neonV-500 rotate-12 animate-pulse" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <svg class="absolute top-1/4 -right-4 w-4 h-4 text-neonB-400 animate-bounce" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+
+        <!-- Card 1: รูปภาพ -->
+        <div class="bg-dark-800 p-2 rounded-[24px] border border-slate-700 shadow-xl relative z-10 mb-6 overflow-hidden">
+            <!-- กระดุมตกแต่ง -->
+            <div class="absolute -top-4 -left-4 z-20">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-12 h-12 transform -rotate-12 drop-shadow-lg">
+                    <circle cx="50" cy="50" r="45" fill="#4f46e5" stroke="#1e293b" stroke-width="4"/>
+                    <path d="M 35 35 L 65 65 M 65 35 L 35 65" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <img src="https://i.postimg.cc/prhJbHHG/985-20251006234919.png" alt="บัญชี Kaizen Land" class="w-full h-auto object-cover rounded-[16px] opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/600x600/1e293b/4f46e5?text=KAIZEN+Payment'">
+        </div>
+
+        <!-- Card 2: ข้อความและปุ่มคัดลอก -->
+        <div class="dark-card px-6 pb-8 pt-8 rounded-[24px] shadow-2xl relative z-10">
+            
+            <div class="space-y-6 relative z-10">
+                <div class="text-center space-y-4">
+                    <p class="text-[15px] leading-relaxed font-medium text-slate-300">
+                        เลขบัญชีตามนี้เลยครับคนสวยคนหล่อ 
+                        <br>ชื่อบัญชี <span class="font-bold text-neonV-400">ตัวอย่างเว็บ</span> เท่านั้นนะครับ!!
+                        <br><span class="text-[13px] text-slate-400 font-normal mt-1 block">ไม่มีบัญชีอื่น สามารถเซฟรูปไปสแกนได้เลยครับ</span>
+                    </p>
+                    
+                    <div class="bg-dark-900/50 text-slate-300 rounded-xl p-3 text-[13px] inline-flex items-start gap-2 border border-slate-700 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-neonB-400 flex-shrink-0 mt-0.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" />
+                        </svg>
+                        <div class="text-left leading-relaxed">
+                            ซื้อดิสสำเร็จสามารถโอนทิ้งไว้ตามราคาที่แจ้งได้เลยนะครับ<br>
+                            <span class="text-neonV-400">โอนแล้วแปะสลิปให้ร้านด้วยนะครับ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ส่วนเลขบัญชี -->
+                <div class="space-y-4 pt-2 border-t border-dashed border-slate-700">
+                    <div class="flex items-center justify-center gap-1 text-[13px] text-slate-400 mt-4 mb-2 font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 animate-bounce text-neonV-400">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                        คลิกเพื่อคัดลอกเลขบัญชี
+                    </div>
+
+                    <!-- K-Bank -->
+                    <div class="bg-dark-900/40 rounded-[16px] p-3 flex items-center justify-between border border-slate-700 hover:border-neonV-500 transition-all group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-900/30 rounded-full flex items-center justify-center text-green-400 font-bold text-lg border border-green-800">K</div>
+                            <div>
+                                <div class="text-[11px] text-slate-400 mb-0.5">กสิกรไทย</div>
+                                <div class="font-bold tracking-wider text-white text-base">ตัวอย่างงานร้านไคเซ็น</div>
+                            </div>
+                        </div>
+                        <button onclick="copyText('2221396513', this)" class="bounce-hover bg-neonV-600 hover:bg-neonV-500 text-white text-[12px] font-semibold px-4 py-2 rounded-full transition-all border border-neonV-400 flex items-center gap-1 shadow-lg shadow-purple-500/20">
+                            คัดลอก
+                        </button>
+                    </div>
+
+                    <!-- Wallet -->
+                    <div class="bg-dark-900/40 rounded-[16px] p-3 flex items-center justify-between border border-slate-700 hover:border-neonB-500 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-orange-900/30 rounded-full flex items-center justify-center text-orange-400 font-bold text-lg border border-orange-800">W</div>
+                            <div>
+                                <div class="text-[11px] text-slate-400 mb-0.5">ทรูมันนี่ วอเล็ท</div>
+                                <div class="font-bold tracking-wider text-white text-base">ตัวอย่างงานร้านไคเซ็น</div>
+                            </div>
+                        </div>
+                        <button onclick="copyText('0943947154', this)" class="bounce-hover bg-slate-700 hover:bg-slate-600 text-white text-[12px] font-semibold px-4 py-2 rounded-full transition-all border border-slate-500 flex items-center gap-1">
+                            คัดลอก
+                        </button>
+                    </div>
+                    <div class="text-center text-[11px] text-amber-400/80 font-medium">
+                        * โอนทรูมันนี่วอเลท รบกวนบวกค่าธรรมเนียม +10 บาทนะครับ *
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="mt-4 pt-4 text-center flex items-center justify-center gap-1 text-[11px] text-slate-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-neonV-400">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    จะรีบตอบภายใน 10 นาทีครับผม
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyText(text, buttonElement) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                showToast();
+
+                const originalHtml = buttonElement.innerHTML;
+                buttonElement.innerHTML = '✔ สำเร็จ';
+                buttonElement.classList.replace('bg-neonV-600', 'bg-green-600');
+                
+                setTimeout(() => {
+                    buttonElement.innerHTML = originalHtml;
+                    buttonElement.classList.replace('bg-green-600', 'bg-neonV-600');
+                }, 2000);
+
+            } catch (err) {
+                console.error('คัดลอกไม่ได้:', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', '-translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-4');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
